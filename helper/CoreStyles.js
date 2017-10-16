@@ -8,8 +8,24 @@ export const CoreStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  center: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   flex: {
     flex: 1
+  },
+  text: {
+    fontSize: 24,
+    textAlign: 'center',
+    paddingTop: 15,
+    paddingBottom: 15
+  },
+  textInput: {
+    fontSize: 24,
+    textAlign: 'center',
+    paddingTop: 15,
+    paddingBottom: 15
   }
 
 });
