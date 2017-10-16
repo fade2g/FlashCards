@@ -1,23 +1,25 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {Component} from 'react';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import {View} from 'react-native';
+import FlashStatusBar from "./components/FlashStatusBar";
+import {primary_light} from "./helper/colors";
+import reducer from './reducers'
+import MainNavigator from "./components/navigation/MainNavigator";
+import {CoreStyles} from "./helper/CoreStyles";
 
-export default class App extends React.Component {
+
+export default class App extends Component {
+
   render() {
+    console.log('hello debugger');
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
+      <Provider store={createStore(reducer)}>
+        <View style={CoreStyles.flex}>
+          <FlashStatusBar backgroundColor={primary_light}/>
+          <MainNavigator/>
+        </View>
+      </Provider>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
