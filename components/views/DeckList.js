@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import {Text, View} from 'react-native'
+import {View, ScrollView, Text} from 'react-native'
 import {CoreStyles} from "../../helper/CoreStyles";
 import {Ionicons} from "@expo/vector-icons";
 import {connect} from "react-redux";
 import {fetchDecks} from "../../helper/api";
 import {receiveDecks} from "../../actions/index";
+import DeckCard from "../DeckCard";
 
 class DeckList extends Component {
 
@@ -34,12 +35,20 @@ class DeckList extends Component {
   render() {
     const {decks} = this.props;
     return (<View style={CoreStyles.flex}>
-      {decks !== undefined && Object.keys(decks).map((deckKey) => {
-        return (<Text key={deckKey}>
-          {deckKey}
-        </Text>)
-      })}
-
+      {this.state.ready
+        ? <ScrollView>
+          {decks !== undefined && Object.keys(decks).map((deckKey) => {
+            return (<DeckCard
+              key={deckKey}
+              deckName={deckKey}
+              numberOfCards={decks[deckKey].length}
+              onPress={() => {
+                console.log('do something')
+              }}>
+            </DeckCard>)
+          })}
+        </ScrollView>
+        : <Text>Loading</Text>}
     </View>)
   }
 }

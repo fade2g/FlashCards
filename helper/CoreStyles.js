@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {primary_dark, primary_light} from "./colors";
+import {primary_dark, primary_light, white} from "./colors";
 
 const minorFontSize = 18;
 const majorFontSize = 24;
@@ -40,6 +40,24 @@ export const CoreStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     fontSize: minorFontSize
+  },
+  deckCard: {
+    padding: 20,
+    margin: 20,
+    minHeight: 170,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 4,
+    backgroundColor: white,
+    borderColor: primary_dark,
+    borderWidth: 1,
+    shadowRadius: 10,
+    shadowOpacity: 0.8,
+    shadowColor: 'rgba(0, 0,0,0.84)',
+    shadowOffset: {
+      width: 4,
+      height: 4
+    }
   }
 
 });
