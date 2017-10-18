@@ -37,7 +37,7 @@ class DeckList extends Component {
     return (<View style={CoreStyles.flex}>
       {this.state.ready
         ? <ScrollView>
-          {decks !== undefined && Object.keys(decks).map((deckKey) => {
+          {decks && Object.keys(decks).map((deckKey) => {
             return (<DeckCard
               key={deckKey}
               deckName={deckKey}
