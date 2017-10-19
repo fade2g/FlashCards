@@ -4,6 +4,8 @@ import {NavigationActions} from 'react-navigation';
 import {connect} from "react-redux";
 import {CoreStyles} from "../../helper/CoreStyles";
 import TouchableButton from "../TouchableButton";
+import {deleteDeck} from "../../actions/index";
+import {deleteDeckFromStorage} from "../../helper/api";
 
 class Deck extends Component {
 
@@ -14,13 +16,22 @@ class Deck extends Component {
     }))
   };
 
+  deleteDeck = (deckName) => {
+    this.props.deleteDeck(deckName);
+    this.props.navigation.goBack();
+    deleteDeckFromStorage(deckName);
+  };
+
   render() {
     const deckName = this.props.navigation.state.params.deckName;
     const deck = this.props.deck[deckName];
+    if (!deck) {
+      return null;
+    }
     return (<View>
       <Text style={CoreStyles.text}>{deckName}</Text>
       <Text style={CoreStyles.textMinor}>{deck.length} cards</Text>
-      <TouchableButton onPress={() => { }} style={CoreStyles.deleteButton}>Delete Deck</TouchableButton>
+      <TouchableButton onPress={() => this.deleteDeck(deckName)} style={CoreStyles.deleteButton}>Delete Deck</TouchableButton>
       <TouchableButton
         onPress={() => this.subNavigate(deckName, 'AddQuestion')}
         style={CoreStyles.primaryButton}>
@@ -38,4 +49,12 @@ function mapStateToProps({deck}) {
   }
 }
 
-export default connect(mapStateToProps)(Deck);
+function mapDispatchToProps(dispatch) {
+  return {
+    deleteDeck: (deckName) => {
+      dispatch(deleteDeck(deckName))
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Deck);

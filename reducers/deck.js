@@ -1,5 +1,5 @@
 import {ADD_DECK} from '../actions';
-import {RECEIVE_DECKS} from "../actions/index";
+import {DELETE_DECK, RECEIVE_DECKS} from "../actions/index";
 
 export function deck(state = {}, action) {
   const {payload} = action;
@@ -11,6 +11,11 @@ export function deck(state = {}, action) {
       };
     case RECEIVE_DECKS:
       return payload;
+    case DELETE_DECK: {
+      let temp = {...state};
+      delete temp[payload];
+      return temp;
+    }
     default:
       return {...state}
   }
