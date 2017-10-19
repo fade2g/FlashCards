@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {KeyboardAvoidingView, Text, TextInput, TouchableOpacity, View} from 'react-native'
+import {KeyboardAvoidingView, Text, TextInput} from 'react-native'
+import {NavigationActions} from 'react-navigation';
 import {CoreStyles} from "../../helper/CoreStyles";
 import {Ionicons} from "@expo/vector-icons";
 import TouchableButton from "../TouchableButton";
@@ -19,6 +20,12 @@ class AddDeck extends Component {
     deckName: ''
   };
 
+  toDeckList = () => {
+    this.props.navigation.dispatch(NavigationActions.back({
+      key: 'AddDeck'
+    }))
+  };
+
   handleInput = (input) => {
     this.setState({
       deckName: input
@@ -34,7 +41,7 @@ class AddDeck extends Component {
       });
       this.props.addDeck(deckName);
       updateDeck([], deckName);
-      // TODO HHE Navigate to DECKS view
+      this.toDeckList();
       // TODO HHE Logic to cancel adding a new deck
     }
   };

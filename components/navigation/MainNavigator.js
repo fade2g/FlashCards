@@ -1,13 +1,13 @@
 import Tabs from "./Tabs";
 import {StackNavigator} from "react-navigation";
-import DeckList from "../views/DeckList";
+import Deck from "../views/Deck";
 
 const MainNavigator = StackNavigator({
   Home: {
     screen: Tabs
   },
   Other: {
-    screen: DeckList
+    screen: Deck
   }
 });
 
