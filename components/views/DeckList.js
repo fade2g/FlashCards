@@ -60,9 +60,9 @@ class DeckList extends Component {
   }
 }
 
-function mapStateToProps({deck}) {
+function mapStateToProps({decks}) {
   return {
-    decks: deck
+    decks: decks
   }
 }
 

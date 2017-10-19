@@ -24,7 +24,7 @@ class Deck extends Component {
 
   render() {
     const deckName = this.props.navigation.state.params.deckName;
-    const deck = this.props.deck[deckName];
+    const deck = this.props.decks[deckName];
     if (!deck) {
       return null;
     }
@@ -43,9 +43,9 @@ class Deck extends Component {
 }
 
 
-function mapStateToProps({deck}) {
+function mapStateToProps({decks}) {
   return {
-    deck
+    decks
   }
 }
 
