@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {View, ScrollView, Text} from 'react-native'
+import {NavigationActions} from 'react-navigation';
 import {CoreStyles} from "../../helper/CoreStyles";
 import {Ionicons} from "@expo/vector-icons";
 import {connect} from "react-redux";
@@ -31,6 +32,13 @@ class DeckList extends Component {
       })
   }
 
+  toDeck = (deckName) => {
+    this.props.navigation.dispatch(NavigationActions.navigate({
+      routeName: 'Deck',
+      params: {deckName}
+    }))
+  };
+
 
   render() {
     const {decks} = this.props;
@@ -43,7 +51,7 @@ class DeckList extends Component {
               deckName={deckKey}
               numberOfCards={decks[deckKey].length}
               onPress={() => {
-                console.log('do something')
+                this.toDeck(deckKey)
               }}>
             </DeckCard>)
           })}

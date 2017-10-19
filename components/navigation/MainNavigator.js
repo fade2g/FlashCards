@@ -6,8 +6,11 @@ const MainNavigator = StackNavigator({
   Home: {
     screen: Tabs
   },
-  Other: {
-    screen: Deck
+  Deck: {
+    screen: Deck,
+    navigationOptions: ({navigation}) => ({
+      title: `Deck ${navigation.state.params.deckName}`
+    })
   }
 });
 
