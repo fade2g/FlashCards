@@ -39,7 +39,6 @@ class DeckList extends Component {
     }))
   };
 
-
   render() {
     const {decks} = this.props;
     return (<View style={CoreStyles.flex}>

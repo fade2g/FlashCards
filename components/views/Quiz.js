@@ -4,7 +4,7 @@ import {Text} from 'react-native'
 class Quiz extends Component {
   render() {
     return (<Text>
-      DeckList
+      Quiz
     </Text>)
   }
 }

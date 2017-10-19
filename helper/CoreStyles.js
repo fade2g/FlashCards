@@ -1,8 +1,25 @@
 import {StyleSheet} from 'react-native';
-import {primary_dark, primary_light, white} from "./colors";
+import {black, primary_dark, primary_light, red, secondary_light, white} from "./colors";
 
 const minorFontSize = 18;
 const majorFontSize = 24;
+
+function buttonFactory(color, backgroundColor) {
+  return {
+    color: color,
+    backgroundColor: backgroundColor,
+    margin: 20,
+    padding: 10,
+    height: 50,
+    borderRadius: 4,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: minorFontSize,
+    minWidth: 200,
+    textAlign: 'center'
+  }
+}
 
 export const CoreStyles = StyleSheet.create({
   container: {
@@ -24,22 +41,24 @@ export const CoreStyles = StyleSheet.create({
     paddingTop: 15,
     paddingBottom: 15
   },
+  textMinor: {
+    fontSize: minorFontSize,
+    textAlign: 'center',
+    paddingTop: 10,
+    paddingBottom: 10
+  },
   textInput: {
     fontSize: majorFontSize,
     textAlign: 'center',
     paddingTop: 15,
     paddingBottom: 15
   },
-  primaryButton: {
-    backgroundColor: primary_dark,
-    paddingLeft: 30,
-    paddingRight: 30,
-    height: 45,
-    borderRadius: 4,
-    alignSelf: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontSize: minorFontSize
+  primaryButton: buttonFactory(secondary_light, primary_dark),
+  deleteButton: buttonFactory(black, red),
+  buttonIcon: {
+    marginLeft: 50,
+    marginRight: 50,
+    padding: 50
   },
   deckCard: {
     padding: 20,
