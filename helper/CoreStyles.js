@@ -53,6 +53,12 @@ export const CoreStyles = StyleSheet.create({
     paddingTop: 15,
     paddingBottom: 15
   },
+  textInputMultiline: {
+    fontSize: minorFontSize,
+    textAlign: 'center',
+    paddingTop: 7,
+    paddingBottom: 7
+  },
   primaryButton: buttonFactory(secondary_light, primary_dark),
   deleteButton: buttonFactory(black, red),
   buttonIcon: {
