@@ -11,19 +11,19 @@ const MainNavigator = StackNavigator({
   Deck: {
     screen: Deck,
     navigationOptions: ({navigation}) => ({
-      title: `Deck ${navigation.state.params.deckName}`
+      title: `Deck \'${navigation.state.params.deckName}\'`
     })
   },
   AddQuestion: {
     screen: AddQuestion,
     navigationOptions: ({navigation}) => ({
-      title: `Add card to deck ${navigation.state.params.deckName}`
+      title: `Add card to deck \'${navigation.state.params.deckName}\'`
     })
   },
   Quiz: {
     screen: Quiz,
     navigationOptions: ({navigation}) => ({
-      title: `Quiz of deck ${navigation.state.params.deckName}`
+      title: `Quiz of deck \'${navigation.state.params.deckName}\'`
     })
   }
 });
