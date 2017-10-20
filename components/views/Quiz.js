@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import TextButton from "../TextButton";
 import {CoreStyles} from "../../helper/CoreStyles";
 import TouchableButton from "../TouchableButton";
+import {StyleSheet} from 'react-native';
 
 class Quiz extends Component {
 
@@ -66,7 +67,7 @@ class Quiz extends Component {
 
     const {question, answer} = deck[questionIndex];
     return (<View>
-      <Text style={CoreStyles.textMinor}>{questionIndex + 1} / {deck.length}</Text>
+      <Text style={[CoreStyles.textMinor, styles.progress]}>{questionIndex + 1} / {deck.length}</Text>
       <Text style={CoreStyles.text}>{showAnswer ? answer : question}</Text>
       <TextButton onPress={this.handleFlip}>Show {showAnswer ? 'Question' : 'Answer'}</TextButton>
       <TouchableButton onPress={() => this.handleFeedback(true)}
@@ -76,6 +77,13 @@ class Quiz extends Component {
     </View>)
   }
 }
+
+const styles = StyleSheet.create({
+  progress: {
+    textAlign: 'right',
+    marginRight: 20
+  }
+});
 
 function mapStateToProps({decks}) {
   return {
