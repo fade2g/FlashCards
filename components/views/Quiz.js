@@ -11,6 +11,7 @@ class Quiz extends Component {
     showAnswer: false,
     showSummary: false,
     questionIndex: 0,
+    correctCounter: 0,
     deck: []
   };
 
@@ -32,17 +33,16 @@ class Quiz extends Component {
   };
 
   handleFeedback = (correct) => {
-    console.log(correct);
-    console.log('answer was ' + (correct ? 'correct' : 'incorrect'));
     this.setState((state) => {
       return {
-        questionIndex: state.questionIndex + 1
+        questionIndex: state.questionIndex + 1,
+        correctCounter: correct ? state.correctCounter + 1 : state.correctCounter
       }
     });
   };
 
   render() {
-    const {deck, showAnswer, questionIndex} = this.state;
+    const {deck, showAnswer, questionIndex, correctCounter} = this.state;
 
     if (deck.length === 0) {
       return null;
@@ -50,9 +50,16 @@ class Quiz extends Component {
 
     console.log('index: ' + questionIndex + 'deckLength' + deck.length);
     if (questionIndex >= deck.length) {
+      const incorrectCounter = deck.length - correctCounter;
       return (
         <View>
-          <Text>Here comes the summary</Text>
+          <Text style={CoreStyles.textMinor}>These are your stats</Text>
+          <Text style={CoreStyles.text}>
+            Correct: {correctCounter} ({Math.round(correctCounter / deck.length * 100, 1)}%)
+          </Text>
+          <Text style={CoreStyles.text}>
+            Incorrect: {incorrectCounter} ({Math.round(incorrectCounter / deck.length * 100, 1)}%)
+          </Text>
         </View>
       )
     }
