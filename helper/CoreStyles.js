@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {black, primary_dark, primary_light, red, secondary_light, white} from "./colors";
+import {black, green, primary_dark, primary_light, red, secondary_light, white} from "./colors";
 
 const minorFontSize = 18;
 const majorFontSize = 24;
@@ -61,6 +61,8 @@ export const CoreStyles = StyleSheet.create({
   },
   primaryButton: buttonFactory(secondary_light, primary_dark),
   deleteButton: buttonFactory(black, red),
+  correctButton: buttonFactory(black, green),
+  incorrectButton: buttonFactory(black, red),
   buttonIcon: {
     marginLeft: 50,
     marginRight: 50,

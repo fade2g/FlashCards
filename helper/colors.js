@@ -2,6 +2,7 @@ export const gray = '#757575';
 export const white = '#fff';
 export const black = '#000';
 export const red = '#900';
+export const green = '#090';
 
 // palette: http://paletton.com/#uid=53g1m0kp-p0mpsIt4tXsTf1-ui2
 export const primary = '#197A73';
