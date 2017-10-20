@@ -5,6 +5,7 @@ import TextButton from "../TextButton";
 import {CoreStyles} from "../../helper/CoreStyles";
 import TouchableButton from "../TouchableButton";
 import {StyleSheet} from 'react-native';
+import {clearLocationNotification, setLocalNotification} from "../../helper/notification";
 
 
 function FeedbackScreen({onRestart, onBack, correct, total}) {
@@ -32,7 +33,8 @@ class Quiz extends Component {
     showAnswer: false,
     questionIndex: 0,
     correctCounter: 0,
-    deck: []
+    deck: [],
+    rescheduledNotification: false
   };
 
   componentDidMount() {
@@ -60,6 +62,10 @@ class Quiz extends Component {
         showAnswer: false
       }
     });
+    if (this.state.questionIndex + 1 === this.state.deck.length) {
+      clearLocationNotification()
+        .then(setLocalNotification)
+    }
   };
 
   handleRestart = () => {

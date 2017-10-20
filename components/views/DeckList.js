@@ -7,6 +7,7 @@ import {connect} from "react-redux";
 import {fetchDecks} from "../../helper/api";
 import {receiveDecks} from "../../actions/index";
 import DeckCard from "../DeckCard";
+import {setLocalNotification} from "../../helper/notification";
 
 class DeckList extends Component {
 
@@ -29,6 +30,9 @@ class DeckList extends Component {
       })
       .then(() => {
         this.setState(() => ({ready: true}))
+      })
+      .then(() => {
+        setLocalNotification();
       })
   }
 
