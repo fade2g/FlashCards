@@ -6,11 +6,30 @@ import {CoreStyles} from "../../helper/CoreStyles";
 import TouchableButton from "../TouchableButton";
 import {StyleSheet} from 'react-native';
 
+
+function FeedbackScreen({onRestart, onBack, correct, total}) {
+  const incorrectCounter = total - correct;
+  return (
+    <View>
+      <Text style={CoreStyles.textMinor}>These are your stats</Text>
+      <Text style={CoreStyles.text}>
+        Correct: {correct} ({Math.round(correct / total * 100, 1)}%)
+      </Text>
+      <Text style={CoreStyles.text}>
+        Incorrect: {incorrectCounter} ({Math.round(incorrectCounter / total * 100, 1)}%)
+      </Text>
+      <TouchableButton onPress={onRestart}
+                       style={CoreStyles.primaryButton}>Restart</TouchableButton>
+      <TouchableButton onPress={onBack}
+                       style={CoreStyles.primaryButton}>Back to deck</TouchableButton>
+    </View>
+  )
+}
+
 class Quiz extends Component {
 
   state = {
     showAnswer: false,
-    showSummary: false,
     questionIndex: 0,
     correctCounter: 0,
     deck: []
@@ -37,9 +56,22 @@ class Quiz extends Component {
     this.setState((state) => {
       return {
         questionIndex: state.questionIndex + 1,
-        correctCounter: correct ? state.correctCounter + 1 : state.correctCounter
+        correctCounter: correct ? state.correctCounter + 1 : state.correctCounter,
+        showAnswer: false
       }
     });
+  };
+
+  handleRestart = () => {
+    this.setState({
+      questionIndex: 0,
+      showAnswer: false,
+      correctCounter: 0
+    })
+  };
+
+  handleBack = () => {
+    this.props.navigation.goBack();
   };
 
   render() {
@@ -49,20 +81,13 @@ class Quiz extends Component {
       return null;
     }
 
-    console.log('index: ' + questionIndex + 'deckLength' + deck.length);
     if (questionIndex >= deck.length) {
-      const incorrectCounter = deck.length - correctCounter;
-      return (
-        <View>
-          <Text style={CoreStyles.textMinor}>These are your stats</Text>
-          <Text style={CoreStyles.text}>
-            Correct: {correctCounter} ({Math.round(correctCounter / deck.length * 100, 1)}%)
-          </Text>
-          <Text style={CoreStyles.text}>
-            Incorrect: {incorrectCounter} ({Math.round(incorrectCounter / deck.length * 100, 1)}%)
-          </Text>
-        </View>
-      )
+      return (<FeedbackScreen
+        onRestart={this.handleRestart}
+        onBack={this.handleBack}
+        total={deck.length}
+        correct={correctCounter}
+      />)
     }
 
     const {question, answer} = deck[questionIndex];
