@@ -1,8 +1,12 @@
 import React from 'react';
 import {DrawerItems, DrawerNavigator} from "react-navigation";
 import Settings from "../views/Settings";
-import Tabs from "./Tabs";
 import {View} from "react-native";
+import DeckNavigation from "./DeckNavigation";
+import AddDeck from "../views/AddDeck";
+import {MaterialIcons} from "@expo/vector-icons/index";
+import Octicons from "@expo/vector-icons/Octicons";
+import Entypo from "@expo/vector-icons/Entypo";
 
 const CustomDrawerContentComponent = (props) => {
   const subItems = props.items.filter((item) => !props.excludedRoutes.contains(item.key));
@@ -19,18 +23,33 @@ const CustomDrawerContentComponent = (props) => {
 
 // noinspection JSUnusedGlobalSymbols
 const DrawerNavigation = DrawerNavigator({
+  Home: {
+    screen: DeckNavigation,
+    navigationOptions: {
+      drawerLabel: 'Home',
+      drawerIcon: ({tintColor}) => (<MaterialIcons name='home' size={30} color={tintColor}/>)
+    }
+  },
+  AddDeck: {
+    screen: AddDeck,
+    navigationOptions: {
+      drawerLabel: 'Add Deck',
+      drawerIcon: ({tintColor}) => (<Entypo name='add-to-list' size={30} color={tintColor}/>)
+    }
+  },
   Settings: {
     screen: Settings,
-  },
-  HomeTabs: {
-    screen: Tabs
+    navigationOptions: {
+      drawerLabel: 'Settings',
+      drawerIcon: ({tintColor}) => (<Octicons name='settings' size={30} color={tintColor}/>)
+    }
   }
 }, {
-  initialRouteName: 'HomeTabs',
+  initialRouteName: 'Home',
   drawerPosition: 'left',
-  contentComponent: CustomDrawerContentComponent,
+  // contentComponent: CustomDrawerContentComponent,
   contentOptions: {
-    excludedRoutes: 'HomeTabs',
+    excludedRoutes: 'DeckNavigation',
   },
 });
 

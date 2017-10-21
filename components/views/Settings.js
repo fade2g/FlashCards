@@ -55,8 +55,6 @@ class Settings extends Component {
         </View>
         <TouchableButton style={CoreStyles.primaryButton} onPress={this.generateDefaultData}>Add Default
           Data</TouchableButton>
-        <TouchableButton style={CoreStyles.primaryButton} onPress={() => this.props.navigation.goBack()}>To
-          Home</TouchableButton>
       </View>
     )
   }
@@ -66,7 +64,6 @@ const styles = StyleSheet.create({
   switchContainer: {
     flexDirection: 'row',
     alignSelf: 'center'
-    // justifyContent: 'space-between'
   }
 });
 
