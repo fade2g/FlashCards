@@ -3,7 +3,7 @@ This is my "Mobile Flashcards" submission project for Udacity's React Nanodegree
 The project is based on react-native and developped and tested from **android** devices.
 It has been tested with a physical Android 7 device and Andoird simulator from the Android SDK.
 
-##Installation
+## Installing
 
 After cloning the repository, the following steps are required in the console:
 
@@ -13,7 +13,7 @@ or
 
 `yarn install`
   
-##Starting
+## Starting
 
 To start the development server for the expo app:
 
@@ -25,7 +25,7 @@ or
 
 This might take some time.
 
-##Using
+## Using
 
 In order to test and use the app,
 * either the expo app must be installed on a physical device. In this case,
