@@ -25,24 +25,27 @@ or
 
 This might take some time.
 
-## Using
-
 In order to test and use the app,
 * either the expo app must be installed on a physical device. In this case,
   scan the QR barcode via the expo app in order to connect to the development live reload server
 * or the android emulator is used and started. In this case, connect the development live reload
   server to android emulator by pressing `a`
-  
-The app allows adding decks with flash cards as questions. Initially, the app comes without
-questions or data. You can add a card in the "add card" view. When clicking on a card, you can add
-questions and answers to the deck.
 
-You can also delete a deck. Be aware, that there is no confirmation asked.
+## Using
+  
+The app provides the following functionality:
+* Display a list of flash card decks
+* Start a quiz for a given card deck, including some stats
+* Add questions and answers to a card deck
+* Delete the card deck
+* Add a default card deck (the app comes without default data)
+* Turn off reminders (local notifications)
+
 
 In order to start a quiz, go to a deck and hit `start quiz` - if the quiz has questions in it.
 
-Once the quiz if finished, you will receive a score. The quiz is a self-assessment; in order to
+Once the quiz is finished, you will receive a score. The quiz is a self-assessment; in order to
 validate the answer, you can flip the card.
 
-The app will show a notification at 8 o'clock PM, if you have'nt studied for the given day.
-Possibly you will be asked for a permission to that. If youo reject, notifications will not work.
+The app will show a notification at 8 o'clock PM, if you haven't studied for the given day.
+Possibly you will be asked for a permission to that. If you reject, notifications will not work.
