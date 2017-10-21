@@ -5,9 +5,8 @@ import {View} from 'react-native';
 import FlashStatusBar from "./components/FlashStatusBar";
 import {primary_light} from "./helper/colors";
 import rootReducer from './reducers/rootReducer'
-import MainNavigator from "./components/navigation/MainNavigator";
 import {CoreStyles} from "./helper/CoreStyles";
-
+import DrawerNavigation from "./components/navigation/DrawerNavigation";
 
 export default class App extends Component {
 
@@ -16,7 +15,7 @@ export default class App extends Component {
       <Provider store={createStore(rootReducer)}>
         <View style={CoreStyles.flex}>
           <FlashStatusBar backgroundColor={primary_light}/>
-          <MainNavigator/>
+          <DrawerNavigation/>
         </View>
       </Provider>
     );

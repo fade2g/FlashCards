@@ -1,23 +1,20 @@
-import Tabs from "./Tabs";
+import React from 'react';
 import {StackNavigator} from "react-navigation";
 import Deck from "../views/Deck";
-import AddQuestion from "../views/AddQuestion";
 import Quiz from "../views/Quiz";
+import DeckList from "../views/DeckList";
 
-const MainNavigator = StackNavigator({
-  Home: {
-    screen: Tabs
+const DeckNavigation = StackNavigator({
+  Decks: {
+    screen: DeckList,
+    navigationOptions: ({navigation}) => ({
+      title: 'Decks'
+    })
   },
   Deck: {
     screen: Deck,
     navigationOptions: ({navigation}) => ({
       title: `Deck \'${navigation.state.params.deckName}\'`
-    })
-  },
-  AddQuestion: {
-    screen: AddQuestion,
-    navigationOptions: ({navigation}) => ({
-      title: `Add card to deck \'${navigation.state.params.deckName}\'`
     })
   },
   Quiz: {
@@ -29,4 +26,4 @@ const MainNavigator = StackNavigator({
 });
 
 
-export default MainNavigator;
+export default DeckNavigation;

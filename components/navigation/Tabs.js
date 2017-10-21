@@ -1,13 +1,13 @@
 import React from 'react';
 import {Platform} from 'react-native'
 import {TabNavigator} from 'react-navigation'
-import DeckList from "../views/DeckList";
-import AddDeck from "../views/AddDeck";
 import {primary_dark, primary_light, secondary_dark, secondary_light} from "../../helper/colors";
+import DeckNavigation from "./DeckNavigation";
+import AddDeck from "../views/AddDeck";
 
 const Tabs = TabNavigator({
-  Decks: {
-    screen: DeckList
+  DeckNavigation: {
+    screen: DeckNavigation
   },
   AddDeck: {
     screen: AddDeck
@@ -16,7 +16,7 @@ const Tabs = TabNavigator({
   navigationOptions: {
     header: null
   },
-  tabBarPosition: 'top',
+  tabBarPosition: 'bottom',
   animationEnabled: true,
   tabBarOptions: {
     activeTintColor: Platform.OS === 'ios' ? primary_light : secondary_light,
