@@ -1,17 +1,22 @@
 import React, {Component} from 'react';
-import {Text, View} from 'react-native'
+import {View} from 'react-native'
 import {CoreStyles} from "../../helper/CoreStyles";
 import {connect} from "react-redux";
 import TouchableButton from "../TouchableButton";
+import {DEFAULT_DATA} from "../../helper/defaultData";
+import {addData} from "../../actions/index";
+import {updateDeck} from "../../helper/api";
 
 class Settings extends Component {
 
+  generateDefaultData = () => {
+    updateDeck(DEFAULT_DATA.items, DEFAULT_DATA.deckName);
+  };
+
   render() {
     return (<View>
-        <Text style={[CoreStyles.center, CoreStyles.text]}>
-          Settings
-        </Text>
-        <TouchableButton onPress={() => this.props.navigation.goBack()}>go back</TouchableButton>
+        <TouchableButton style={CoreStyles.primaryButton} onPress={this.generateDefaultData}>Add Default Data</TouchableButton>
+        <TouchableButton style={CoreStyles.primaryButton} onPress={() => this.props.navigation.goBack()}>To Home</TouchableButton>
       </View>
     )
   }

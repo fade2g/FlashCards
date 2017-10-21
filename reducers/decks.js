@@ -1,5 +1,5 @@
 import {ADD_DECK} from '../actions';
-import {ADD_QUESTION, DELETE_DECK, RECEIVE_DECKS} from "../actions/index";
+import {ADD_DECK_DATA, ADD_QUESTION, DELETE_DECK, RECEIVE_DECKS} from "../actions/index";
 
 export function decks(state = {}, action) {
   const {payload} = action;
@@ -8,6 +8,12 @@ export function decks(state = {}, action) {
       return {
         ...state,
         [payload]: []
+      };
+    case ADD_DECK_DATA:
+      console.log('Will add data', payload.deckName);
+      return {
+        ...state,
+        [payload.deckName]: payload.items
       };
     case RECEIVE_DECKS:
       return payload;
