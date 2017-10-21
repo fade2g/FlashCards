@@ -4,7 +4,6 @@ import {CoreStyles} from "../../helper/CoreStyles";
 import {connect} from "react-redux";
 import TouchableButton from "../TouchableButton";
 import {DEFAULT_DATA} from "../../helper/defaultData";
-import {addData} from "../../actions/index";
 import {updateDeck} from "../../helper/api";
 
 class Settings extends Component {
