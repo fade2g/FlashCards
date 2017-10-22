@@ -4,7 +4,9 @@ import Deck from "../views/Deck";
 import Quiz from "../views/Quiz";
 import DeckList from "../views/DeckList";
 import HamburgerMenu from "../HamburgerMenu";
+import AddQuestion from "../views/AddQuestion";
 
+// noinspection JSUnusedGlobalSymbols
 const DeckNavigation = StackNavigator({
   Decks: {
     screen: DeckList,
@@ -17,6 +19,13 @@ const DeckNavigation = StackNavigator({
     screen: Deck,
     navigationOptions: ({navigation}) => ({
       title: `Deck \'${navigation.state.params.deckName}\'`,
+      headerRight: <HamburgerMenu navigation={navigation}/>
+    })
+  },
+  AddQuestion: {
+    screen: AddQuestion,
+    navigationOptions: ({navigation}) => ({
+      title: `Add to Deck \'${navigation.state.params.deckName}\'`,
       headerRight: <HamburgerMenu navigation={navigation}/>
     })
   },
