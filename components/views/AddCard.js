@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {KeyboardAvoidingView, ScrollView, TextInput} from 'react-native'
 import {connect} from "react-redux";
-import {addQuestion} from "../../actions/";
+import {addCard} from "../../actions/";
 import TouchableButton from "../TouchableButton";
 import {CoreStyles} from "../../helper/CoreStyles";
-import {addQuestionToStorage} from "../../helper/api";
+import {addCardToStorage} from "../../helper/api";
 
-class AddQuestion extends Component {
+class AddCard extends Component {
 
   state = {
     question: '',
@@ -25,8 +25,8 @@ class AddQuestion extends Component {
     const deckName = this.props.navigation.state.params.deckName;
     const {question, answer} = this.state;
     if (deckName && question !== '' && answer !== '') {
-      this.props.addQuestion(deckName, question, answer);
-      addQuestionToStorage(deckName, question, answer);
+      this.props.addCard(deckName, question, answer);
+      addCardToStorage(deckName, question, answer);
       this.props.navigation.goBack();
     }
   };
@@ -57,7 +57,7 @@ class AddQuestion extends Component {
           <TouchableButton
             onPress={this.handleSubmit}
             style={CoreStyles.primaryButton}>
-            Submit question
+            Submit Card
           </TouchableButton>
         </ScrollView>
       </KeyboardAvoidingView>)
@@ -70,10 +70,10 @@ function mapStateToProps() {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addQuestion: (deckName, question, answer) => {
-      dispatch(addQuestion(deckName, question, answer))
+    addCard: (deckName, question, answer) => {
+      dispatch(addCard(deckName, question, answer))
     }
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddQuestion);
+export default connect(mapStateToProps, mapDispatchToProps)(AddCard);

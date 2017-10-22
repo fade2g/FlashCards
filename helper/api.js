@@ -30,7 +30,7 @@ export function deleteDeckFromStorage(key) {
     )
 }
 
-export function addQuestionToStorage(key, question, answer) {
+export function addCardToStorage(key, question, answer) {
   return AsyncStorage.getItem(DECK_STORAGE_KEY)
     .then((decks) => JSON.parse(decks))
     .then((decks) => {

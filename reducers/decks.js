@@ -1,4 +1,4 @@
-import {ADD_DECK, ADD_QUESTION, DELETE_DECK, ADD_DECK_DATA, RECEIVE_DECKS} from '../actions/types';
+import {ADD_DECK, ADD_CARD, DELETE_DECK, ADD_DECK_DATA, RECEIVE_DECKS} from '../actions/types';
 
 export function decks(state = {}, action) {
   const {payload} = action;
@@ -21,7 +21,7 @@ export function decks(state = {}, action) {
       delete temp[payload];
       return temp;
     }
-    case ADD_QUESTION: {
+    case ADD_CARD: {
       return {
         ...state,
         [payload.deckName]: state[payload.deckName].concat(

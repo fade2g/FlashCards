@@ -5,7 +5,7 @@ import DeckNavigation from "./DeckNavigation";
 import {MaterialIcons} from "@expo/vector-icons/index";
 import Octicons from "@expo/vector-icons/Octicons";
 import Entypo from "@expo/vector-icons/Entypo";
-import AddCardStack from "./AddCardStack";
+import AddCardStack from "./AddDeckStack";
 import SettingsStack from "./SettingsStack";
 
 // noinspection JSUnusedGlobalSymbols

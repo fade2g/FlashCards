@@ -33,9 +33,9 @@ class Deck extends Component {
       <Text style={CoreStyles.textMinor}>{deck.length} cards</Text>
       <TouchableButton onPress={() => this.deleteDeck(deckName)} style={CoreStyles.deleteButton}>Delete Deck</TouchableButton>
       <TouchableButton
-        onPress={() => this.subNavigate(deckName, 'AddQuestion')}
+        onPress={() => this.subNavigate(deckName, 'AddCard')}
         style={CoreStyles.primaryButton}>
-        Add Question
+        Add Card
       </TouchableButton>
       {deck.length > 0 && <TouchableButton onPress={() => this.subNavigate(deckName, 'Quiz')} style={CoreStyles.primaryButton}>Start Quiz</TouchableButton>}
     </View>)
