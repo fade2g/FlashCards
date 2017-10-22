@@ -6,6 +6,7 @@ import {CoreStyles} from "../../helper/CoreStyles";
 import TouchableButton from "../TouchableButton";
 import {StyleSheet} from 'react-native';
 import {clearLocationNotification, setLocalNotification} from "../../helper/notification";
+import {tertiary_light} from "../../helper/colors";
 
 
 function FeedbackScreen({onRestart, onBack, correct, total}) {
@@ -98,13 +99,17 @@ class Quiz extends Component {
 
     const {question, answer} = deck[questionIndex];
     return (<View>
-      <Text style={[CoreStyles.textMinor, styles.progress]}>{questionIndex + 1} / {deck.length}</Text>
-      <Text style={CoreStyles.text}>{showAnswer ? answer : question}</Text>
-      <TextButton onPress={this.handleFlip}>Show {showAnswer ? 'Question' : 'Answer'}</TextButton>
-      <TouchableButton onPress={() => this.handleFeedback(true)}
-                       style={CoreStyles.correctButton}>Correct</TouchableButton>
-      <TouchableButton onPress={() => this.handleFeedback(false)}
-                       style={CoreStyles.incorrectButton}>Incorrect</TouchableButton>
+      <View style={[CoreStyles.deckCard]}>
+        <Text style={[CoreStyles.textMinor, styles.progress]}>{questionIndex + 1} / {deck.length}</Text>
+        <Text style={CoreStyles.text}>{showAnswer ? answer : question}</Text>
+        <TextButton onPress={this.handleFlip}>Show {showAnswer ? 'Question' : 'Answer'}</TextButton>
+      </View>
+      <View style={styles.buttonContainer}>
+        <TouchableButton onPress={() => this.handleFeedback(false)}
+                         style={CoreStyles.incorrectButton}>Incorrect</TouchableButton>
+        <TouchableButton onPress={() => this.handleFeedback(true)}
+                         style={CoreStyles.correctButton}>Correct</TouchableButton>
+      </View>
     </View>)
   }
 }
@@ -113,6 +118,14 @@ const styles = StyleSheet.create({
   progress: {
     textAlign: 'right',
     marginRight: 20
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    flexGrow: 1,
+    alignSelf: 'center',
+    justifyContent: 'space-between',
+    padding: 20,
+    margin: 20,
   }
 });
 

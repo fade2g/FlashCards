@@ -4,19 +4,20 @@ import {black, green, primary_dark, primary_light, red, secondary_light, white} 
 const minorFontSize = 18;
 const majorFontSize = 24;
 
-function buttonFactory(color, backgroundColor) {
+function buttonFactory(color, backgroundColor, small = false) {
   return {
     color: color,
     backgroundColor: backgroundColor,
-    margin: 20,
-    padding: 10,
-    height: 50,
+    margin: small ? 7 : 20,
+    padding: small ? 3: 10,
+    height: small ? 35 : 50,
+    minWidth: small ? 100 : 200,
     borderRadius: 4,
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
     fontSize: minorFontSize,
-    minWidth: 200,
+
     textAlign: 'center'
   }
 }
@@ -61,8 +62,8 @@ export const CoreStyles = StyleSheet.create({
   },
   primaryButton: buttonFactory(secondary_light, primary_dark),
   deleteButton: buttonFactory(black, red),
-  correctButton: buttonFactory(black, green),
-  incorrectButton: buttonFactory(black, red),
+  correctButton: buttonFactory(black, green, true),
+  incorrectButton: buttonFactory(black, red, true),
   buttonIcon: {
     marginLeft: 50,
     marginRight: 50,

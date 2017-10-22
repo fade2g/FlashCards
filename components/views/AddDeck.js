@@ -2,19 +2,12 @@ import React, {Component} from 'react';
 import {KeyboardAvoidingView, Text, TextInput} from 'react-native'
 import {NavigationActions} from 'react-navigation';
 import {CoreStyles} from "../../helper/CoreStyles";
-import {Ionicons} from "@expo/vector-icons";
 import TouchableButton from "../TouchableButton";
 import {connect} from "react-redux";
 import {addDeck} from "../../actions/index";
 import {updateDeck} from "../../helper/api";
 
 class AddDeck extends Component {
-
-  // noinspection JSUnusedGlobalSymbols
-  static navigationOptions = {
-    tabBarLabel: 'Add Deck',
-    tabBarIcon: ({tintColor}) => (<Ionicons name='ios-speedometer' size={30} color={tintColor}/>)
-  };
 
   state = {
     deckName: ''

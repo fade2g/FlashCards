@@ -23,6 +23,7 @@ class DeckList extends Component {
 
   componentDidMount() {
     const {dispatch} = this.props;
+    console.log('Component did mount');
 
     fetchDecks()
       .then((decks) => {
