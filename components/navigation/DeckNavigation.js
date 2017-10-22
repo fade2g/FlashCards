@@ -23,7 +23,7 @@ const DeckNavigation = StackNavigator({
   Quiz: {
     screen: Quiz,
     navigationOptions: ({navigation}) => ({
-      title: `Quiz of deck \'${navigation.state.params.deckName}\'`,
+      title: `Quiz \'${navigation.state.params.deckName}\'`,
       headerRight: <HamburgerMenu navigation={navigation}/>
     })
   }
