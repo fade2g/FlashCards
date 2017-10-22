@@ -49,3 +49,6 @@ validate the answer, you can flip the card.
 
 The app will show a notification at 8 o'clock PM, if you haven't studied for the given day.
 Possibly you will be asked for a permission to that. If you reject, notifications will not work.
+
+The menu to access home screen, add deck screen and settings screen is he three dots on the
+right side and can be swiped in as well (from the right side). 
