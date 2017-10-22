@@ -1,5 +1,4 @@
-import {ADD_DECK} from '../actions';
-import {ADD_DECK_DATA, ADD_QUESTION, DELETE_DECK, RECEIVE_DECKS} from "../actions/index";
+import {ADD_DECK, ADD_QUESTION, DELETE_DECK, ADD_DECK_DATA, RECEIVE_DECKS} from '../actions/types';
 
 export function decks(state = {}, action) {
   const {payload} = action;

@@ -1,8 +1,5 @@
-export const RECEIVE_DECKS = 'RECEIVE_DECKS';
-export const ADD_DECK = 'ADD_DECK';
-export const DELETE_DECK = 'DELETE_DECK';
-export const ADD_QUESTION = 'ADD_QUESTION';
-export const ADD_DECK_DATA = 'ADD_DECK_DATA';
+import {ADD_DECK, ADD_DECK_DATA, ADD_QUESTION, DELETE_DECK, RECEIVE_DECKS} from "./types";
+
 
 export const receiveDecks = (decks) => {
   return {
