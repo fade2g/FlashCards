@@ -1,7 +1,7 @@
 This is my "Mobile Flashcards" submission project for Udacity's React Nanodegree 
 
-The project is based on react-native and developped and tested from **android** devices.
-It has been tested with a physical Android 7 device and Andoird simulator from the Android SDK.
+The project is based on react-native and developed and tested from **android** devices.
+It has been tested with a physical Android 7 device and Android simulator from the Android SDK.
 
 ## Installing
 
@@ -36,7 +36,7 @@ In order to test and use the app,
 The app provides the following functionality:
 * Display a list of flash card decks
 * Start a quiz for a given card deck, including some stats
-* Add questions and answers to a card deck
+* Add a card with questions and answers to a card deck
 * Delete the card deck
 * Add a default card deck (the app comes without default data)
 * Turn off reminders (local notifications)
