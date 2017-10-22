@@ -8,6 +8,16 @@ import {fetchDecks} from "../../helper/api";
 import {receiveDecks} from "../../actions/index";
 import DeckCard from "../DeckCard";
 import {setLocalNotification} from "../../helper/notification";
+import TouchableButton from "../TouchableButton";
+
+
+function EmptyDataCard({children}) {
+  return (
+    <View style={CoreStyles.deckCard}>
+      {children}
+    </View>
+  )
+};
 
 class DeckList extends Component {
 
@@ -49,16 +59,29 @@ class DeckList extends Component {
     return (<View style={CoreStyles.flex}>
       {this.state.ready
         ? <ScrollView>
-          {decks && Object.keys(decks).map((deckKey) => {
-            return (<DeckCard
-              key={deckKey}
-              deckName={deckKey}
-              numberOfCards={decks[deckKey].length}
-              onPress={() => {
-                this.toDeck(deckKey)
-              }}>
-            </DeckCard>)
-          })}
+          {decks && Object.keys(decks).length > 0
+            ? Object.keys(decks).map((deckKey) => {
+              return (<DeckCard
+                key={deckKey}
+                deckName={deckKey}
+                numberOfCards={decks[deckKey].length}
+                onPress={() => {
+                  this.toDeck(deckKey)
+                }}>
+              </DeckCard>)
+            })
+            : <EmptyDataCard>
+              <Text style={CoreStyles.textMinor}>There is no deck yet. You can create a new deck
+                or you can some default data via settings.</Text>
+              <TouchableButton
+                onPress={() => this.props.navigation.navigate('AddDeck')}
+                style={CoreStyles.primaryButton}>
+                Add new deck</TouchableButton>
+              <TouchableButton
+                onPress={() => this.props.navigation.navigate('QuickSettings')}
+                style={CoreStyles.primaryButton}>
+                Go to settings</TouchableButton>
+            </EmptyDataCard>}
         </ScrollView>
         : <Text>Loading</Text>}
     </View>)
