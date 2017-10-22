@@ -32,7 +32,6 @@ export function createNotification() {
 export function setLocalNotification() {
   getLocalNotificationMode()
     .then((data) => {
-      console.log('data' + data);
       if (data) {
         AsyncStorage.getItem(NOTIFICATION_KEY)
           .then(JSON.parse)
