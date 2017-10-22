@@ -4,7 +4,7 @@ import {NavigationActions} from 'react-navigation';
 import {connect} from "react-redux";
 import {CoreStyles} from "../../helper/CoreStyles";
 import TouchableButton from "../TouchableButton";
-import {deleteDeck} from "../../actions/index";
+import {deleteDeck} from "../../actions/";
 import {deleteDeckFromStorage} from "../../helper/api";
 
 class Deck extends Component {

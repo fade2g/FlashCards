@@ -4,7 +4,7 @@ import {NavigationActions} from 'react-navigation';
 import {CoreStyles} from "../../helper/CoreStyles";
 import TouchableButton from "../TouchableButton";
 import {connect} from "react-redux";
-import {addDeck} from "../../actions/index";
+import {addDeck} from "../../actions/";
 import {updateDeck} from "../../helper/api";
 
 class AddDeck extends Component {
@@ -35,7 +35,6 @@ class AddDeck extends Component {
       this.props.addDeck(deckName);
       updateDeck([], deckName);
       this.toDeckList();
-      // TODO HHE Logic to cancel adding a new deck
     }
   };
 

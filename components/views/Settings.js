@@ -10,7 +10,7 @@ import {
   clearLocationNotification, getLocalNotificationMode, setLocalNotification,
   setLocalNotificationMode
 } from "../../helper/notification";
-import {addData} from "../../actions/index";
+import {addData} from "../../actions/";
 
 class Settings extends Component {
 

@@ -5,10 +5,10 @@ import {CoreStyles} from "../../helper/CoreStyles";
 import {Ionicons} from "@expo/vector-icons";
 import {connect} from "react-redux";
 import {fetchDecks} from "../../helper/api";
-import {receiveDecks} from "../../actions/index";
 import DeckCard from "../DeckCard";
 import {setLocalNotification} from "../../helper/notification";
 import TouchableButton from "../TouchableButton";
+import {receiveDecks} from "../../actions/";
 
 
 function EmptyDataCard({children}) {
@@ -17,7 +17,7 @@ function EmptyDataCard({children}) {
       {children}
     </View>
   )
-};
+}
 
 class DeckList extends Component {
 

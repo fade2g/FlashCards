@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {KeyboardAvoidingView, ScrollView, TextInput} from 'react-native'
 import {connect} from "react-redux";
-import {addQuestion} from "../../actions/index";
+import {addQuestion} from "../../actions/";
 import TouchableButton from "../TouchableButton";
 import {CoreStyles} from "../../helper/CoreStyles";
 import {addQuestionToStorage} from "../../helper/api";
