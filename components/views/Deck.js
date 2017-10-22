@@ -37,7 +37,7 @@ class Deck extends Component {
         style={CoreStyles.primaryButton}>
         Add Question
       </TouchableButton>
-      <TouchableButton onPress={() => this.subNavigate(deckName, 'Quiz')} style={CoreStyles.primaryButton}>Start Quiz</TouchableButton>
+      {deck.length > 0 && <TouchableButton onPress={() => this.subNavigate(deckName, 'Quiz')} style={CoreStyles.primaryButton}>Start Quiz</TouchableButton>}
     </View>)
   }
 }
