@@ -10,6 +10,7 @@ import {
   clearLocationNotification, getLocalNotificationMode, setLocalNotification,
   setLocalNotificationMode
 } from "../../helper/notification";
+import {addData} from "../../actions/index";
 
 class Settings extends Component {
 
@@ -42,7 +43,9 @@ class Settings extends Component {
 
 
   generateDefaultData = () => {
-    updateDeck(DEFAULT_DATA.items, DEFAULT_DATA.deckName);
+    const {deckName, items} = DEFAULT_DATA;
+    updateDeck(items, deckName);
+    this.props.addData(deckName, items)
   };
 
   render() {
@@ -73,7 +76,9 @@ function mapStateToProps() {
 }
 
 function mapDispatchToProps(dispatch) {
-  return {}
+  return {
+    addData: (deckName, items) => dispatch(addData(deckName, items))
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settings);
